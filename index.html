@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: rgb(154, 197, 154);
+
+        }
+        div{
+            transform: translate(-50%,-50%);
+            top: 50%;
+            backdrop-filter: blur(10px);
+            left: 50%;
+            position: absolute;
+        }
+        input{
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+        }
+        input:focus{
+            border: 2px solid rgba(0,0,0,0.5);
+            box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.1);
+            background: linear-gradient(45deg,red,blue);
+            font-size: 15px;
+            font-weight: 600;
+            color:transparent;
+            background-clip: text;
+        }
+        button{
+            font-size: 15px;
+            padding: 9px 15px;
+            border: none;
+            border-radius: 10px;
+        }
+        button:hover{
+            background:linear-gradient(45deg,red,blue);
+            color:white;
+            text-decoration: underline;
+
+        }
+    </style>
+    <div>
+        <input id="input" placeholder="Enter your Text !">
+        <button onclick="speak()">Speak</button>
+    </div>
+    <script>
+        function speak(){
+            var text = document.getElementById("input").value;
+            var utterance = new SpeechSynthesisUtterance(text);
+            speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+</html>
